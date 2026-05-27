@@ -17,8 +17,28 @@ def menu():
         print("Módulo Potência ainda não disponível.")
 
 
-    # ... adicionar try/except para cada módulo restante ...
+    try:
+        from calc_conversao import celsius_para_fahrenheit, km_para_milhas, kg_para_libras
+        print("Módulo Conversão carregado.")
+        print("  10 Graus Celsius =", celsius_para_fahrenheit(10)
+    except ImportError:
+        print("Módulo Conversão ainda não disponível.")
 
+
+    try:
+        from calc_estatistica import media, mediana, desvio_padrao
+        print("Módulo Estatística carregado.")
+        print("  Média de 3, 4, e 5 =", media([3, 4, 5]))
+    except ImportError:
+        print("Módulo Estatística ainda não disponível.")
+
+
+    try:
+        from calc_percentual import percentual, acrescimo, desconto
+        print("Módulo Percentual carregado.")
+        print("  10 é", percentual(10, 25), " de 25 =")
+    except ImportError:
+        print("Módulo Percentual ainda não disponível.")
 
 if __name__ == "__main__":
     menu()
