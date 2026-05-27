@@ -61,3 +61,34 @@ def test_dividir_float():
 def test_dividir_por_zero():
     with pytest.raises(ValueError):
         dividir(10, 0)
+
+
+# =========================
+# TESTES PERCENTUAL
+# =========================
+from calc_percentual import (
+    percentual,
+    acrescimo,
+    desconto
+)
+
+def test_percentual():
+    assert percentual(25, 200) == 12.5
+
+def test_percentual_total_zero():
+    with pytest.raises(ValueError):
+        percentual(10, 0)
+
+def test_acrescimo():
+    assert acrescimo(100, 10) == 110.0
+
+def test_acrescimo_percentual_negativo():
+    with pytest.raises(ValueError):
+        acrescimo(100, -5)
+
+def test_desconto():
+    assert desconto(200, 15) == 170.0
+
+def test_desconto_percentual_invalido():
+    with pytest.raises(ValueError):
+        desconto(200, 110)
